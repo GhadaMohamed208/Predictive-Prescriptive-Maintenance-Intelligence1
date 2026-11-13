@@ -1,0 +1,32 @@
+Subset identity: True {'100 train engines': True, '100 test engines': True, 'one RUL value per test engine': True, 'single operating condition (op3 constant)': True, '26 columns': True}
+Excluded sensors: ['s1', 's5', 's6', 's10', 's16', 's18', 's19'] | modelling sensors: 14
+  ablation A: current sensors                 RMSE=18.64 MAE=13.44
+  ablation B: A + cycle                       RMSE=16.50 MAE=11.27
+  ablation C: A + rolling mean/std/slope      RMSE=18.00 MAE=12.92
+  ablation D: C + shift vs engine baseline    RMSE=12.81 MAE=8.85
+  ablation E: D + cycle                       RMSE=11.11 MAE=7.52
+Chosen feature set: D: C + shift vs engine baseline (20631, 70)
+  Dummy (mean)           {} -> CV RMSE 41.673 (0s)
+  Ridge                  {'alpha': 1.0} -> CV RMSE 15.802 (0s)
+  Ridge                  {'alpha': 10.0} -> CV RMSE 15.764 (0s)
+  Ridge                  {'alpha': 100.0} -> CV RMSE 15.635 (0s)
+  Random Forest          {'n_estimators': 120, 'max_depth': 10, 'min_samples_leaf': 10, 'max_features': 0.4} -> CV RMSE 12.955 (41s)
+  Random Forest          {'n_estimators': 120, 'max_depth': 14, 'min_samples_leaf': 5, 'max_features': 0.4} -> CV RMSE 12.805 (50s)
+  Random Forest          {'n_estimators': 120, 'max_depth': None, 'min_samples_leaf': 20, 'max_features': 0.4} -> CV RMSE 12.932 (49s)
+  HistGradientBoosting   {'learning_rate': 0.05, 'max_leaf_nodes': 15, 'max_iter': 300, 'l2_regularization': 1.0, 'min_samples_leaf': 40} -> CV RMSE 12.745 (4s)
+  HistGradientBoosting   {'learning_rate': 0.05, 'max_leaf_nodes': 31, 'max_iter': 300, 'l2_regularization': 1.0, 'min_samples_leaf': 40} -> CV RMSE 12.680 (7s)
+  HistGradientBoosting   {'learning_rate': 0.1, 'max_leaf_nodes': 15, 'max_iter': 300, 'l2_regularization': 1.0, 'min_samples_leaf': 40} -> CV RMSE 12.776 (4s)
+  XGBoost                {'n_estimators': 400, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 10, 'subsample': 0.8, 'colsample_bytree': 0.6, 'reg_lambda': 2.0} -> CV RMSE 12.840 (3s)
+  XGBoost                {'n_estimators': 400, 'learning_rate': 0.05, 'max_depth': 5, 'min_child_weight': 10, 'subsample': 0.8, 'colsample_bytree': 0.6, 'reg_lambda': 2.0} -> CV RMSE 12.595 (7s)
+  XGBoost                {'n_estimators': 400, 'learning_rate': 0.05, 'max_depth': 5, 'min_child_weight': 30, 'subsample': 0.8, 'colsample_bytree': 0.6, 'reg_lambda': 2.0} -> CV RMSE 12.583 (6s)
+                  model     cv_mae    cv_rmse         cv_r2  train_time_s
+0               XGBoost   8.706989  12.583220  9.088240e-01      1.337044
+1  HistGradientBoosting   8.722912  12.679734  9.074200e-01      1.454257
+2         Random Forest   9.038609  12.804515  9.055889e-01     12.637923
+3                 Ridge  12.401767  15.634644  8.592421e-01      0.016680
+4          Dummy (mean)  36.965236  41.672699 -4.812433e-07      0.000522
+Selected 'XGBoost' (grouped 5-fold CV RMSE 12.58 cycles, MAE 8.71). Rule: among non-baseline candidates within 2% of the best CV RMSE ('XGBoost', 12.58), prefer one with a supported SHAP explainer, then the lowest CV RMSE. The Dummy baseline reaches CV RMSE 41.67.
+TEST (capped truth): {'mae': 9.580480151176452, 'rmse': 13.656590951838142, 'r2': 0.8838618525962899, 'nasa_score': 275.081532960435, 'n': 100} 
+TEST (raw truth): {'mae': 10.650480151176453, 'rmse': 14.670095741382381, 'r2': 0.8753746611433049, 'nasa_score': 301.3740870402968, 'n': 100}
+SHAP: available
+Done in 204s. Artifacts written to /home/claude/industrial-maintenance-ai/models and /home/claude/industrial-maintenance-ai/artifacts

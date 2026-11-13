@@ -1,0 +1,6 @@
+Asset ID,Equipment Name,Type,Location,Operational Status
+MOT-100,Fan motor,Electric Motors,Plant B,Degraded
+FAN-200,Exhaust fan,Fans,Plant A,
+MOT-100,Dup,Pumps,,
+BAD-1,Bad type,Spaceship,,
+,No id,Pumps,,

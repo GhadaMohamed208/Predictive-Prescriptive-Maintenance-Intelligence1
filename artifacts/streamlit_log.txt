@@ -1,0 +1,17 @@
+2026-11-02 12:02:06.536 Could not bind IPv6 wildcard address :::8765; falling back to 0.0.0.0:8765.
+2026-11-02 12:02:06.587 Uvicorn server started on 0.0.0.0:8765
+2026-11-02 12:02:06.894 Did not auto detect external IP.
+Please go to https://docs.streamlit.io/ for debugging hints.
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8765
+  Network URL: http://192.0.2.2:8765
+
+2026-11-02 12:02:36.421 Please replace `st.components.v1.html` with `st.iframe`.
+
+`st.components.v1.html` will be removed after 2026-06-01.
+2026-11-02 12:04:47.952 Please replace `st.components.v1.html` with `st.iframe`.
+
+`st.components.v1.html` will be removed after 2026-06-01.
+  Stopping...

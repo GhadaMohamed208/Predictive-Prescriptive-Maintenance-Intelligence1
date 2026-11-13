@@ -1,0 +1,66 @@
+{
+  "subset_identity": {
+    "n_train_engines": 100,
+    "n_test_engines": 100,
+    "n_rul_values": 100,
+    "op3_unique_values": 1,
+    "operating_condition_clusters_rounded_1dp": 1,
+    "columns": 26,
+    "checks": {
+      "100 train engines": true,
+      "100 test engines": true,
+      "one RUL value per test engine": true,
+      "single operating condition (op3 constant)": true,
+      "26 columns": true
+    },
+    "matches_FD001": true
+  },
+  "train": {
+    "status": "PASSED WITH WARNINGS",
+    "errors": [],
+    "warnings": [
+      "Constant sensor(s) in this file: s1, s5, s10, s16, s18, s19"
+    ],
+    "info": [
+      "20,631 rows, 100 engine(s); cycles per engine 128\u2013362."
+    ],
+    "stats": {
+      "rows": 20631,
+      "engines": 100,
+      "cycles_per_engine_min": 128,
+      "cycles_per_engine_median": 199.0,
+      "cycles_per_engine_max": 362,
+      "duplicates": 0,
+      "missing_values": 0,
+      "infinite_values": 0,
+      "engines_with_short_history": 0,
+      "engines_with_cycle_gaps": 0
+    }
+  },
+  "test": {
+    "status": "PASSED WITH WARNINGS",
+    "errors": [],
+    "warnings": [
+      "Constant sensor(s) in this file: s1, s5, s10, s16, s18, s19"
+    ],
+    "info": [
+      "13,096 rows, 100 engine(s); cycles per engine 31\u2013303."
+    ],
+    "stats": {
+      "rows": 13096,
+      "engines": 100,
+      "cycles_per_engine_min": 31,
+      "cycles_per_engine_median": 133.5,
+      "cycles_per_engine_max": 303,
+      "duplicates": 0,
+      "missing_values": 0,
+      "infinite_values": 0,
+      "engines_with_short_history": 0,
+      "engines_with_cycle_gaps": 0
+    }
+  },
+  "notes": [
+    "Extra file 'x.txt' in the supplied archive is not part of the standard C-MAPSS distribution (218 single-column rows, matches no subset) and was ignored.",
+    "FD002-FD004 were present in the archive but are out of scope (multiple operating conditions need condition-aware modelling)."
+  ]
+}

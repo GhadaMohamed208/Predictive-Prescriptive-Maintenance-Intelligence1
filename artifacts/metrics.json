@@ -1,0 +1,35 @@
+{
+  "selected_model": "XGBoost",
+  "internal_validation_cv_selected": {
+    "mae": 8.706989289832581,
+    "rmse": 12.583219911241205,
+    "r2": 0.9088240018995095
+  },
+  "official_test_last_cycle_vs_capped_truth": {
+    "mae": 9.580480151176452,
+    "rmse": 13.656590951838142,
+    "r2": 0.8838618525962899,
+    "nasa_score": 275.081532960435,
+    "n": 100
+  },
+  "official_test_last_cycle_vs_raw_truth": {
+    "mae": 10.650480151176453,
+    "rmse": 14.670095741382381,
+    "r2": 0.8753746611433049,
+    "nasa_score": 301.3740870402968,
+    "n": 100
+  },
+  "notes": {
+    "capped": "Predictions and training targets are capped at 125; 'capped truth' applies the same cap to the official RUL values so both sides share a scale.",
+    "raw": "Raw-truth metrics compare capped predictions with uncapped official RULs; they are reported for transparency (engines with true RUL > cap are under-predicted by construction).",
+    "test_usage": "Official test set evaluated once, after model selection, at the final cycle of each engine."
+  },
+  "anomaly_detector_sanity": {
+    "spearman_score_vs_elapsed_life_train": 0.8760633787127041,
+    "flag_rate_rul>125": 0.09861785580874113,
+    "flag_rate_rul_60_125": 0.6432307692307693,
+    "flag_rate_rul<=60": 0.9995081967213115,
+    "threshold": 0.5233506230371707
+  },
+  "elapsed_s": 203.93550491333008
+}

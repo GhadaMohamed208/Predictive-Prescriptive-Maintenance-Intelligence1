@@ -1,4 +1,4 @@
-# Industrial Rotating Equipment Maintenance Intelligence Platform (v2.0)
+# Industrial Rotating Equipment Maintenance Intelligence Platform 
 
 A Streamlit decision-support application for condition monitoring and maintenance management of rotating equipment.
 It combines (1) **dataset-driven analysis** with one globally active dataset, (2) an **AI model for one validated equipment type**
